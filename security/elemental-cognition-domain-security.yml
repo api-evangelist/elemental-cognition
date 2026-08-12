@@ -1,0 +1,61 @@
+generated: '2026-08-12'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: ec.ai
+  https: false
+  https_note: >-
+    Port 443 refuses the TLS handshake (SSLv3 alert handshake failure, alert 40) with every protocol,
+    cipher and group combination tried, from three independent networks. Port 80 answers HTTP/1.1
+    409 Conflict from a Cloudflare edge with body "error code: 1001" (origin DNS resolution failure).
+    No certificate could be retrieved, so no HSTS or expiry data exists to record.
+  a_record: 198.12.144.169
+  a_record_owner: GoDaddy (secureserver.net) anycast forwarding address — not a live web origin
+- host: cora.ec.ai
+  https: false
+  https_note: >-
+    Resolves to 34.96.64.53 (Google Cloud LB). The certificate presented for SNI cora.ec.ai is
+    CN=ragflow.devgcp.fiddler.ai, issued by Google Trust Services WR3 — a third party's host. Name
+    mismatch; every request then answers HTTP 401 from Google Cloud Identity-Aware Proxy. Dangling
+    DNS record.
+- host: cogent.ec.ai
+  https: false
+  https_note: >-
+    Resolves to 34.117.199.168 (Google Cloud LB). The certificate presented for SNI cogent.ec.ai is
+    CN=*.race.co.jp, issued by Sectigo — an unrelated third party. Name mismatch; with verification
+    disabled every path returns an ~886 KB HTML page belonging to that other site. Dangling DNS
+    record.
+domains:
+- domain: ec.ai
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: >-
+    v=spf1 include:_spf.salesforce.com include:spf.protection.outlook.com
+    include:43881181.spf10.hubspotemail.net -all
+  dmarc: true
+  dmarc_policy: quarantine
+  mx: ec-ai.mail.protection.outlook.com
+  registrar_ns: markmonitor.com
+findings:
+- id: no-serving-tls
+  severity: high
+  detail: >-
+    The apex domain ec.ai terminates no usable TLS session and its HTTP origin is unresolvable at
+    the Cloudflare edge. Corporate mail (Microsoft 365) and SPF/DMARC remain configured, so the
+    domain is still administered — the web presence specifically is gone.
+- id: dangling-subdomain-dns
+  severity: high
+  detail: >-
+    cogent.ec.ai and cora.ec.ai both point at Google Cloud load balancers that now serve
+    certificates for unrelated third parties (*.race.co.jp and ragflow.devgcp.fiddler.ai). Records
+    that outlive their backend on a shared cloud load balancer are the classic subdomain-takeover
+    precondition; these should be removed from DNS.
+- id: no-caa
+  severity: low
+  detail: No CAA record is published for ec.ai, so any public CA may issue for the domain.
+- id: no-dnssec
+  severity: low
+  detail: ec.ai is not DNSSEC signed.
+x-evidence:
+  checked: '2026-08-12'

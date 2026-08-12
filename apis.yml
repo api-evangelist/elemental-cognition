@@ -1,7 +1,17 @@
 aid: elemental-cognition
 name: Elemental Cognition
-description: 'Elemental Cognition is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Elemental Cognition is a New York based artificial intelligence company founded in 2015 by Dr. David
+  Ferrucci, the researcher who led the IBM Watson Jeopardy! project. The company builds a neuro-symbolic
+  AI platform that pairs fine-tuned large language models with a formal, multi-strategy reasoning engine,
+  so that answers are produced by the reasoning engine over an explicit Formal Knowledge Model rather than
+  by the language model itself. The platform is marketed for high-stakes decision work in supply chain,
+  life sciences, higher education, travel and investment management, and it was the reasoning layer behind
+  Bridgewater's AI investment fund. Elemental Cognition packaged this as the Cogent and Cora enterprise
+  applications, delivered as SaaS on Google Cloud, in a customer's own cloud, or on premises. The company
+  does not run a public developer program: the platform generates callable cloud APIs automatically from
+  each customer's own knowledge model, so the contract is tenant-specific and never published publicly.
+image: https://avatars.githubusercontent.com/u/62571121?v=4
 url: https://raw.githubusercontent.com/api-evangelist/elemental-cognition/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +22,13 @@ created: '2026-08-12'
 modified: '2026-08-12'
 tags:
 - Company
+- Artificial Intelligence
+- Machine Learning
+- Natural Language Processing
+- Reasoning
+- Enterprise AI
+- Knowledge Models
+- Decision Support
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +37,40 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://ec.ai/
+- type: GitHubOrganization
+  url: https://github.com/ElementalCognition
+- type: LinkedIn
+  url: https://www.linkedin.com/company/elementalcognition
+- type: DomainSecurity
+  url: security/elemental-cognition-domain-security.yml
+- type: Plans
+  url: plans/elemental-cognition-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/elemental-cognition-rate-limits.yml
+- type: LLMsTxt
+  url: llms/elemental-cognition-llms.txt
+x-enrichment:
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Elemental Cognition's own site ec.ai now terminates no TLS on 443 and returns Cloudflare
+    "error code: 1001" (origin unresolvable) on 80 — the last successful Internet Archive capture is
+    2024-11-24 — while its product subdomains cogent.ec.ai and cora.ec.ai are dangling DNS records
+    answering with certificates for unrelated third parties, so no public surface of any kind
+    remains to profile.
+  evidence:
+  - url: http://ec.ai/
+    status: 409
+  - url: https://ec.ai/
+    status: 0
+  - url: https://cora.ec.ai/.well-known/agent-card.json
+    status: 401
+  - url: https://github.com/ElementalCognition
+    status: 200
+  checked: '2026-08-12'

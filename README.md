@@ -42,5 +42,10 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Elemental Cognition is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Elemental Cognition is a New York based artificial intelligence company founded in 2015 by Dr. David Ferrucci, the researcher who led the IBM Watson Jeopardy! project. It built a neuro-symbolic AI platform pairing fine-tuned large language models with a formal, multi-strategy reasoning engine operating over an explicit Formal Knowledge Model, packaged as the Cogent and Cora enterprise applications.
+
+Elemental Cognition never ran a public developer program — the platform generated a tenant-specific cloud API from each customer's own knowledge model. As of 2026-08-12 the company's site serves no content: `ec.ai` refuses the TLS handshake on 443 and returns Cloudflare `error code: 1001` on 80, the last successful Internet Archive capture is 2024-11-24, and the product subdomains `cogent.ec.ai` and `cora.ec.ai` are dangling DNS records answering with certificates belonging to unrelated third parties. See `x-coverage` in `apis.yml` for the probe evidence.
+
+- https://ec.ai/
+- https://github.com/ElementalCognition
+- https://www.linkedin.com/company/elementalcognition

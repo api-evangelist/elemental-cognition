@@ -1,0 +1,39 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, crates.io, rubygems.org, nuget.org, packagist.org and
+  github.com/ElementalCognition
+package_count: 0
+packages: []
+note: >-
+  No first-party Elemental Cognition client library exists in any public package registry. The
+  company's GitHub organization (github.com/ElementalCognition, 14 public repositories) holds the
+  GLUCOSE research dataset, Kubernetes/Tekton infrastructure tooling, and forks of upstream
+  projects — no SDK, no generated client, no CLI. This is consistent with the platform design:
+  Elemental Cognition generates a tenant-specific cloud API from each customer's Formal Knowledge
+  Model, so there is no single stable contract for a shared SDK to wrap. No `SDKs` pointer is
+  emitted in apis.yml.
+registries_checked:
+- registry: npm
+  query: '"elemental cognition"; @ec-ai scope'
+  result: no first-party package (all hits unrelated — Elemental UI, AWS Elemental, etc.)
+- registry: pypi
+  query: elemental-cognition, elementalcognition, ec-ai, ecai
+  result: 404 on every candidate name
+- registry: crates.io
+  query: elemental cognition
+  result: no first-party crate
+- registry: rubygems
+  query: elemental cognition
+  result: empty result set
+- registry: nuget
+  query: elemental cognition
+  result: empty result set
+- registry: packagist
+  query: elemental cognition
+  result: no first-party package
+- registry: github
+  query: github.com/ElementalCognition
+  result: >-
+    14 public repos, 5 first-party (glucose, arrow-bug, redpanda-cluster-configs, tekton-toolbox,
+    gh-token-getter, ec-branding); none is a client library. Last first-party code push 2024-07-31.

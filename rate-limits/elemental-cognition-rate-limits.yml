@@ -1,0 +1,22 @@
+generated: '2026-08-12'
+method: searched
+source: https://ec.ai/
+limit_count: 0
+rate_limits: []
+headers: []
+note: >-
+  Elemental Cognition publishes no rate-limit documentation. There is no public developer portal,
+  API reference, or docs host on which limits could be stated — DNS returns NXDOMAIN for api.ec.ai,
+  docs.ec.ai and developer.ec.ai, and the archived site (2017-2024) contains no developer
+  documentation path. The platform generates a tenant-specific cloud API per customer, so any
+  throttling contract would live inside a customer agreement rather than in public docs. Recorded
+  as an explicit zero, not omitted.
+x-evidence:
+  checked: '2026-08-12'
+  urls:
+  - url: https://ec.ai/
+    status: 0
+    note: 'TLS handshake refused on 443; HTTP/1.1 409 "error code: 1001" on 80'
+  - url: https://docs.ec.ai/
+    status: 0
+    note: NXDOMAIN

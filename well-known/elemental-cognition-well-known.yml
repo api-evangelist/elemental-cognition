@@ -1,0 +1,106 @@
+generated: '2026-08-12'
+method: probed
+source: live HTTPS probes of every Elemental Cognition host resolvable in DNS
+summary:
+  hosts_probed: 3
+  paths_probed: 24
+  documents_found: 0
+  note: >-
+    No /.well-known/ document was served by any Elemental Cognition host. No WellKnown,
+    SecurityTxt, APICatalog or AgentCard pointer is emitted in apis.yml, because a recorded
+    absence is not a presence.
+hosts:
+- host: ec.ai
+  reachable: false
+  transport_note: >-
+    Port 443 refuses the TLS handshake outright (SSLv3 alert handshake failure, alert 40) from
+    three independent networks. Port 80 answers HTTP/1.1 409 Conflict from a Cloudflare edge with
+    body "error code: 1001" — Cloudflare could not resolve the origin. The apex A record is
+    198.12.144.169, a GoDaddy (secureserver.net) anycast forwarding address, not a live web origin.
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+  - path: /.well-known/openid-configuration
+    status: 0
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+  - path: /.well-known/api-catalog
+    status: 0
+  - path: /.well-known/ai-plugin.json
+    status: 0
+  - path: /.well-known/agent-card.json
+    status: 0
+  - path: /.well-known/agent.json
+    status: 0
+- host: cora.ec.ai
+  reachable: false
+  transport_note: >-
+    DNS resolves to 34.96.64.53, a Google Cloud load balancer, but the certificate presented for
+    SNI cora.ec.ai is CN=ragflow.devgcp.fiddler.ai (Google Trust Services WR3) — a third party's
+    host. Every path then answers HTTP 401 from Google Cloud Identity-Aware Proxy
+    (x-goog-iap-generated-response: true, IAP error code 52). This is a DANGLING DNS record, not an
+    Elemental Cognition authentication gate; the 401 belongs to whoever owns that load balancer.
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+    note: TLS name mismatch; 401 served by Google IAP on a third party's load balancer
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+- host: cogent.ec.ai
+  reachable: false
+  transport_note: >-
+    DNS resolves to 34.117.199.168, a Google Cloud load balancer, but the certificate presented for
+    SNI cogent.ec.ai is CN=*.race.co.jp (Sectigo DV) — an unrelated third party. With certificate
+    verification disabled, EVERY path returns HTTP 200 with ~886 KB of text/html belonging to that
+    other site. These 200s are a foreign catch-all, NOT Elemental Cognition documents, and are
+    recorded here as misses so they can never be mistaken for a served surface.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    hit: false
+    note: 886 KB HTML catch-all from an unrelated origin (CN=*.race.co.jp) — not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    hit: false
+    note: same HTML catch-all
+  - path: /.well-known/agent.json
+    status: 200
+    hit: false
+    note: same HTML catch-all
+  - path: /.well-known/openid-configuration
+    status: 200
+    hit: false
+    note: same HTML catch-all
+  - path: /.well-known/api-catalog
+    status: 200
+    hit: false
+    note: same HTML catch-all
+  - path: /openapi.json
+    status: 200
+    hit: false
+    note: same HTML catch-all — no OpenAPI document exists here
+x-evidence:
+  checked: '2026-08-12'
+  hosts_resolved:
+  - ec.ai -> 198.12.144.169 (GoDaddy secureserver.net anycast)
+  - cora.ec.ai -> 34.96.64.53 (Google Cloud LB, cert CN=ragflow.devgcp.fiddler.ai)
+  - cogent.ec.ai -> 34.117.199.168 (Google Cloud LB, cert CN=*.race.co.jp)
+  no_dns:
+  - api.ec.ai
+  - docs.ec.ai
+  - developer.ec.ai
+  - app.ec.ai
+  - platform.ec.ai
+  - status.ec.ai
+  - trust.ec.ai
+  - mcp.ec.ai
