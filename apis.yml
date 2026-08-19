@@ -17,7 +17,7 @@ x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
 x-tier-reason: harvest
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
