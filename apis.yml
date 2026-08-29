@@ -11,6 +11,17 @@ description: >-
   applications, delivered as SaaS on Google Cloud, in a customer's own cloud, or on premises. The company
   does not run a public developer program: the platform generates callable cloud APIs automatically from
   each customer's own knowledge model, so the contract is tenant-specific and never published publicly.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/u/62571121?v=4
 url: https://raw.githubusercontent.com/api-evangelist/elemental-cognition/refs/heads/main/apis.yml
 x-type: company
