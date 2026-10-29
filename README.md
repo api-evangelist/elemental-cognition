@@ -64,10 +64,92 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Elemental Cognition is a New York based artificial intelligence company founded in 2015 by Dr. David Ferrucci, the researcher who led the IBM Watson Jeopardy! project. It built a neuro-symbolic AI platform pairing fine-tuned large language models with a formal, multi-strategy reasoning engine operating over an explicit Formal Knowledge Model, packaged as the Cogent and Cora enterprise applications.
+Elemental Cognition is a New York based artificial intelligence company founded in 2015 by Dr. David Ferrucci, the researcher who led the IBM Watson Jeopardy! project. The company builds a neuro-symbolic AI platform that pairs fine-tuned large language models with a formal, multi-strategy reasoning engine, so that answers are produced by the reasoning engine over an explicit Formal Knowledge Model rather than by the language model itself. The platform is marketed for high-stakes decision work in supply chain, life sciences, higher education, travel and investment management, and it was the reasoning layer behind Bridgewater's AI investment fund. Elemental Cognition packaged this as the Cogent and Cora enterprise applications, delivered as SaaS on Google Cloud, in a customer's own cloud, or on premises. The company does not run a public developer program: the platform generates callable cloud APIs automatically from each customer's own knowledge model, so the contract is tenant-specific and never published publicly.
 
-Elemental Cognition never ran a public developer program — the platform generated a tenant-specific cloud API from each customer's own knowledge model. As of 2026-08-12 the company's site serves no content: `ec.ai` refuses the TLS handshake on 443 and returns Cloudflare `error code: 1001` on 80, the last successful Internet Archive capture is 2024-11-24, and the product subdomains `cogent.ec.ai` and `cora.ec.ai` are dangling DNS records answering with certificates belonging to unrelated third parties. See `x-coverage` in `apis.yml` for the probe evidence.
+**Areas:** Company · Artificial Intelligence · Machine Learning · Natural Language Processing · Reasoning · Enterprise AI · Knowledge Models · Decision Support
 
-- https://ec.ai/
-- https://github.com/ElementalCognition
-- https://www.linkedin.com/company/elementalcognition
+## Elemental Cognition on APIs.io
+
+Everything profiled for Elemental Cognition is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/elemental-cognition/](https://apis.io/providers/elemental-cognition/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Elemental Cognition Domain Security](https://apis.io/security/elemental-cognition/elemental-cognition-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Elemental Cognition Plans Pricing](https://apis.io/plans/elemental-cognition/elemental-cognition-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Elemental Cognition Rate Limits](https://apis.io/rate-limits/elemental-cognition/elemental-cognition-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://ec.ai/)
+- [GitHub](https://github.com/ElementalCognition)
+
+## API Evangelist rating
+
+**Kin Score 4.4** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 0.0 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/elemental-cognition/](https://apis.io/providers/elemental-cognition/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Elemental Cognition: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/elemental-cognition/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
